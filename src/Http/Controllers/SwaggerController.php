@@ -41,7 +41,7 @@ class SwaggerController extends BaseController
 
         $filePath = config('l5-swagger.paths.docs').'/'.$targetFile;
 
-        if (config('l5-swagger.generate_always') || ! File::exists($filePath)) {
+        if (config('l5-swagger.generate_always')) {
             try {
                 $this->generator->generateDocs();
             } catch (\Exception $e) {
